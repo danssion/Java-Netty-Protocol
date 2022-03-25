@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>netty-message-protocal</artifactId>
+    <artifactId>netty-protocal</artifactId>
     <groupId>com.dx.netty</groupId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
@@ -20,8 +20,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+<!--    <maven.compiler.source>1.8</maven.compiler.source>-->
+<!--    <maven.compiler.target>1.8</maven.compiler.target>-->
   </properties>
 
 
@@ -30,6 +30,11 @@
     <dependency>
       <groupId>com.dx.netty</groupId>
       <artifactId>netty-message-info</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.zookeeper</groupId>
+      <artifactId>zookeeper-jute</artifactId>
+      <version>3.5.8</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

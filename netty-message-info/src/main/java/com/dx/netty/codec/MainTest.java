@@ -21,14 +21,14 @@ import io.netty.handler.logging.LoggingHandler;
 public class MainTest {
     public static void main(String[] args) {
 
-//encodeExp();
-//        decodeExp();
-        packetOpExp();
+        encodeExp();
+        decodeExp();
+//        packetOpExp();
 
     }
 
     public static void encodeExp() {
-        //channelHandler 单元测试
+        //netty用来改进单元测试提供的  channelHandler 单元测试
         EmbeddedChannel channel = new EmbeddedChannel(
                 //netty 中提供的日志处理器
                 new LoggingHandler(),
@@ -95,7 +95,7 @@ public class MainTest {
     public static void packetOpExp() {
         //channelHandler 单元测试
         EmbeddedChannel channel = new EmbeddedChannel(
-                //拆包连包 使用
+                //拆包连包 使用， 偏移量Offset 9 = 8 + 1
                 new LengthFieldBasedFrameDecoder(1024*1024,9,4,0,0),
                 //netty 中提供的日志处理器
                 new LoggingHandler(),
@@ -116,9 +116,9 @@ public class MainTest {
         try {
             new MessageRecordEncode().encode(null,record,buf);
             //拆包
-            ByteBuf bb1 = buf.slice(0,7);
-            ByteBuf bb2 = buf.slice(7,buf.readableBytes()-7);
-            //新增一个引用，需要调用retain  ，减少调用  bb1.release();
+            ByteBuf bb1 = buf.slice(0,7);  // 数据包1
+            ByteBuf bb2 = buf.slice(7,buf.readableBytes()-7); // 数据包2
+            //新增一个引用，需要调用retain  ，减少释放调用  bb1.release();
             bb1.retain();
 
             channel.writeInbound(bb1);

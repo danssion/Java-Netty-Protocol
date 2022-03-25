@@ -7,6 +7,8 @@
         <module>netty-message-info</module>
         <module>netty-message-server</module>
         <module>netty-message-client</module>
+        <module>netty-rpc</module>
+        <!--        <module>netty-message-protocal</module>-->
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -15,9 +17,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dx.netty</groupId>
-    <artifactId>netty-message-protocal</artifactId>
+    <artifactId>netty-protocal</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>netty-message-protocal</name>
+    <name>netty-protocal</name>
     <description>Demo netty project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>

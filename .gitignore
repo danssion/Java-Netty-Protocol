@@ -1,0 +1,51 @@
+# Cache and logs
+logs/*
+deploy/*
+vender/*
+scripts/*
+vendor/*
+__pycache__
+
+# Composer PHAR
+/composer.phar
+.tmp_staging/
+
+.DS_Store
+/.idea
+/.vscode
+venv
+
+# tags Files
+/.tags
+/.tags*
+/.tags_sorted_by_file
+/resetData.sh
+nbproject/*
+
+*.php~
+*.swap
+*.swp
+*.swo
+*.bak
+*.ini
+*.log
+
+Gemfile.lock
+
+# Ctags Phpcomplete Files
+/tags
+/.phpcomplete_extended/
+
+# ignore doctrine cli-config.php file
+/cli-config.php
+
+# Kdevelop IDE
+.kdev4
+*.kdev4
+
+#IDE ZEND STUDIO
+.buildpath
+.project
+
+#intellj 
+*.iml

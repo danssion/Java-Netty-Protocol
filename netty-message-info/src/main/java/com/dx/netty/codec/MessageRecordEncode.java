@@ -33,18 +33,23 @@ public class MessageRecordEncode extends MessageToByteEncoder<MessageRecord> {
 //        out.writeInt(header.getLength()); //消息长度 在下面设置
 
         Object body = msg.getBody();
-        if (body != null) {
-            //内存输出流
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            //内存对象输出流
-            ObjectOutputStream oos = new ObjectOutputStream(bos);
-            oos.writeObject(body);
-            byte[] bytes=bos.toByteArray();
-            out.writeInt(bytes.length);//写消息长度
-            out.writeBytes(bytes);
-        } else {
-            out.writeInt(0);//消息长度为0
-            log.info("");
+        try {
+            if (body != null) {
+                //内存IO流   输出流
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                //内存对象输出流
+                ObjectOutputStream oos = new ObjectOutputStream(bos);
+                // 利用内存输出流，把对象写入内存后，再读出
+                oos.writeObject(body);
+                byte[] bytes=bos.toByteArray();
+                out.writeInt(bytes.length);//写消息长度
+                out.writeBytes(bytes);
+            } else {
+                out.writeInt(0);//消息长度为0
+                log.info("");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
