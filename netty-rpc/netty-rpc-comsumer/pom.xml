@@ -33,6 +33,10 @@
             <artifactId>netty-rpc-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.dx.netty</groupId>
+            <artifactId>netty-rpc-protocol</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,5 +1,7 @@
 package com.dx.netty;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.Proxy;
 
 /**
@@ -13,6 +15,6 @@ public class RpcClientProxy {
     public <T> T clientProxy(final Class<T> interfaceCls, final String host, int port) {
         return (T) Proxy.newProxyInstance(
             interfaceCls.getClassLoader(),
-            new Class<?>[] {}, new RpcInvokerProxy(host,port)  );
+            new Class<?>[]{interfaceCls}, new RpcInvokerProxy(host,port)  );
     }
 }

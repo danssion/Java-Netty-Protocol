@@ -29,7 +29,8 @@ public class RpcEncoder extends MessageToByteEncoder<RpcProtocol<Object>> {
 
         ISerializer serializer = SerializerManager.getSerializer(header.getSerialType());
         byte[] data = serializer.serialize(msg.getContent());
-        header.setLength(data.length);
+//        header.setLength(data.length);
+        //写入消息长度
         out.writeInt(data.length);
 
         out.writeBytes(data);

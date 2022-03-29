@@ -1,15 +1,15 @@
 package com.dx.netty;
 
 /**
- * Hello world!
+ * @desc
+ * 动态代理
  *
  */
 public class App {
-    
-    public static void main( String[] args )
-    {
+
+    public static void main( String[] args ) {
         RpcClientProxy proxy = new RpcClientProxy();
-        IUserService userService = proxy.clientProxy(IUserService.class,"localhost",8081);
-        System.out.println( userService.saveUser("Hello World!") );
+        IUserService userService = proxy.clientProxy(IUserService.class,"127.0.0.1",8081);
+        System.out.println(userService.saveUser("Hello World!") );
     }
 }
