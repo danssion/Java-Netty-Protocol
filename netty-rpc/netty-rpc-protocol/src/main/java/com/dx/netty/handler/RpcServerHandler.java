@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 public class RpcServerHandler extends SimpleChannelInboundHandler<RpcProtocol<RpcRequest>> {
     @Override
     protected void channelRead0(ChannelHandlerContext chc, RpcProtocol<RpcRequest> msg) throws Exception {
-        RpcProtocol<RpcResponse> resPrtc = new RpcProtocol();
+        RpcProtocol<RpcResponse> resPrtc = new RpcProtocol<>();
         Header header = resPrtc.getHeader();
         header.setReqType(ReqType.RESPONSE.code());
         Object ret = invoke(msg.getContent());

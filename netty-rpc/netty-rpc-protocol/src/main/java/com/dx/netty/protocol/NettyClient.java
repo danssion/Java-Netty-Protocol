@@ -34,19 +34,24 @@ public class NettyClient {
         this.servicePort = servicePort;
     }
 
-    public void sendRequest(RpcProtocol<RpcRequest> protocol) throws InterruptedException {
-        final ChannelFuture future = bootstrap.connect(this.serviceAddress,this.servicePort).sync();
-        future.addListener(listener ->{
-            if (future.isSuccess()) {
-                log.info("connect rpc server {} success ",this.serviceAddress);
-            } else {
-                log.error("connect rpc server {} fail!",this.serviceAddress);
-                future.cause().printStackTrace();
-                eventLoopGroup.shutdownGracefully();
-            }
-        });
-        log.info("begin transfer ~~~~~!");
-        // 返回一个 future
-        future.channel().writeAndFlush(protocol);
+    public void sendRequest(RpcProtocol<RpcRequest> protocol) {
+        final ChannelFuture future;
+        try {
+            future = bootstrap.connect(this.serviceAddress,this.servicePort).sync();
+            future.addListener(listener ->{
+                if (future.isSuccess()) {
+                    log.info("connect rpc server {} success ",this.serviceAddress);
+                } else {
+                    log.error("connect rpc server {} fail!",this.serviceAddress);
+                    future.cause().printStackTrace();
+                    eventLoopGroup.shutdownGracefully();
+                }
+            });
+            log.info("begin transfer ~~~~~!");
+            // 返回一个 future
+            future.channel().writeAndFlush(protocol);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -37,7 +37,7 @@ public class NettyServer {
             .childHandler(new RpcServerInitializer());
         try {
             ChannelFuture future = bootstrap.bind(this.serverAddress,this.serverPort).sync();
-            log.info("server started success on port:{}!~",this.serverPort);
+            log.info("server started success on port : {} ~~!",this.serverPort);
             future.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();

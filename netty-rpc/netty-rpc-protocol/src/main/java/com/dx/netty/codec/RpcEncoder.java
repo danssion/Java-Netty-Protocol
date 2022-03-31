@@ -32,7 +32,6 @@ public class RpcEncoder extends MessageToByteEncoder<RpcProtocol<Object>> {
 //        header.setLength(data.length);
         //写入消息长度
         out.writeInt(data.length);
-
         out.writeBytes(data);
     }
 }
