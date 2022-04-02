@@ -14,12 +14,12 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
  */
 public class RpcServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
-    protected void initChannel(SocketChannel ch) throws Exception {
+    protected void initChannel(SocketChannel ch) {
+        //头信息 长度与下面设置的不符合，不能被 decode
         ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,
             12,4,0,0))
-            .addLast(new RpcServerHandler())
-            .addLast(new RpcDecoder());
-//            .addLast(new RpcEncoder());
-
+            .addLast(new RpcDecoder())
+            .addLast(new RpcEncoder())
+            .addLast(new RpcServerHandler());
     }
 }

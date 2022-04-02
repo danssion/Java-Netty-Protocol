@@ -19,6 +19,6 @@ public class NettyRpcProvider {
         //启动 spring 的容器,  没有依赖spring web
         SpringApplication.run(NettyRpcProvider.class,args);
         // 启动 netty server ，阻塞当前进程来监听请求
-        new NettyServer("127.0.0.1",8080).startNettyServer();
+        new NettyServer("127.0.0.1",8081).startNettyServer();
     }
 }

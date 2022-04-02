@@ -28,6 +28,7 @@ public class RpcDecoder extends ByteToMessageDecoder {
         log.info("========== begin RpcRecorder ==========");
 
         if(in.readableBytes() < RpcContent.HEAD_TOTAL_LEN) {
+            log.warn(" miss take length : {}  need:{} ~~! ",in.readableBytes(),RpcContent.HEAD_TOTAL_LEN);
             return;
         }
         // 标记读取开始的索引

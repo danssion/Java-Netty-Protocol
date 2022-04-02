@@ -21,6 +21,9 @@ venv
 /.tags_sorted_by_file
 /resetData.sh
 nbproject/*
+target/*
+*/target
+netty-rpc/netty-rpc-protocol/target
 
 *.php~
 *.swap

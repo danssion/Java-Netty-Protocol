@@ -23,13 +23,13 @@ public class RpcEncoder extends MessageToByteEncoder<RpcProtocol<Object>> {
 
         Header header = msg.getHeader();
         out.writeShort(header.getMagic());
-        out.writeShort(header.getSerialType());
-        out.writeShort(header.getReqType());
+        out.writeByte(header.getSerialType());
+        out.writeByte(header.getReqType());
         out.writeLong(header.getRequestId());
 
         ISerializer serializer = SerializerManager.getSerializer(header.getSerialType());
         byte[] data = serializer.serialize(msg.getContent());
-//        header.setLength(data.length);
+        header.setLength(data.length);
         //写入消息长度
         out.writeInt(data.length);
         out.writeBytes(data);
