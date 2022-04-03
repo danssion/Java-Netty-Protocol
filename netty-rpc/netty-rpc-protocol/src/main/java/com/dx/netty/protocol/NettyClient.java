@@ -36,6 +36,8 @@ public class NettyClient {
 
     public void sendRequest(RpcProtocol<RpcRequest> protocol) throws InterruptedException {
         final ChannelFuture future = bootstrap.connect(this.serviceAddress,this.servicePort).sync();
+        // 也可以
+//        final ChannelFuture future = bootstrap.connect(this.serviceAddress,this.servicePort);
             future.addListener(listener ->{
                 if (future.isSuccess()) {
                     log.info("connect rpc server {} success ",this.serviceAddress);
