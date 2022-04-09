@@ -7,7 +7,9 @@ import java.lang.reflect.Proxy;
  * @version 1.0
  * @date 2022/3/25 下午10:37
  * @desc Java-Netty
+ *  改为Spring 方式启动，可以不用
  */
+@Deprecated
 public class RpcClientProxy {
 
     public <T> T clientProxy(final Class<T> interfaceCls, final String host, int port) {

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
  * @date 2022/3/25 下午9:55
  * @desc Java-Netty
  */
+@Deprecated
 @Component
 public class SpringBeanManager implements ApplicationContextAware {
 

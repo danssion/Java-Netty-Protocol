@@ -37,6 +37,11 @@
             <groupId>com.dx.netty</groupId>
             <artifactId>netty-rpc-protocol</artifactId>
         </dependency>
+<!--        使用restcontroller 注解-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

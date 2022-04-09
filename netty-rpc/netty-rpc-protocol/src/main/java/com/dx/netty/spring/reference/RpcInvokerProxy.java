@@ -1,4 +1,4 @@
-package com.dx.netty;
+package com.dx.netty.spring.reference;
 
 import com.dx.netty.constant.ReqType;
 import com.dx.netty.constant.RpcContent;
@@ -6,7 +6,6 @@ import com.dx.netty.constant.SerialType;
 import com.dx.netty.core.*;
 import com.dx.netty.protocol.NettyClient;
 import io.netty.channel.DefaultEventLoop;
-import io.netty.channel.EventLoopGroup;
 import io.netty.util.concurrent.DefaultPromise;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +17,6 @@ import java.lang.reflect.Method;
  * @version 1.0
  * @date 2022/3/25 下午10:41
  * @desc Java-Netty
- * 非 Spring 项目使用
  */
 @Slf4j
 public class RpcInvokerProxy implements InvocationHandler {

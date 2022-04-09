@@ -30,6 +30,7 @@
       <artifactId>spring-boot-starter</artifactId>
       <version>2.6.2</version>
     </dependency>
+
     <dependency>
       <groupId>com.dx.netty</groupId>
       <artifactId>netty-rpc-api</artifactId>

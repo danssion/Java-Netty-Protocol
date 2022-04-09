@@ -20,6 +20,7 @@ public class RpcServerInitializer extends ChannelInitializer<SocketChannel> {
             12,4,0,0))
             .addLast(new RpcDecoder())
             .addLast(new RpcEncoder())
-            .addLast(new RpcServerHandler());
+//            .addLast(new RpcServerHandler());
+            .addLast(new RpcServerBeanHandler());
     }
 }
